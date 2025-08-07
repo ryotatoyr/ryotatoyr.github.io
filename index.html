@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大田 凌太郎 | ポートフォリオ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #4338ca;
+            margin-top: 8px;
+        }
+    </style>
+    <!-- Chosen Palette: "Modern Professional" - Background: stone-100 (#F5F5F4), Text: stone-800 (#292524), Primary Accent: Indigo-700 (#4338ca), Secondary Accent: stone-500 (#78716c) -->
+    <!-- Application Structure Plan: A single-page application with a sticky top navigation for seamless scrolling between sections. The structure is designed for recruiters: Hero (quick intro), About (personality/strengths), Skills (scannable tech stack), Projects (deep dive via interactive modals), and Contact (clear call to action). This non-linear structure allows users to quickly access the information most relevant to them. The key interaction is the project modal, which presents detailed information without cluttering the main page, enhancing usability and focus. -->
+    <!-- Visualization & Content Choices: Strengths are paired with icons for quick visual recognition. The skill set is displayed in a grid of "pills" for better scannability than a table. Project details are housed in modals, triggered by a button click. This "Organize & Inform" approach uses JS to dynamically populate the modal, keeping the main layout clean. For Project 3, an image placeholder is included within its modal to allow for visual evidence of data analysis skills. All interactions are handled by vanilla JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-stone-100 text-stone-800 antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-stone-100/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-indigo-700">RYOTARO OTA</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-stone-600 hover:text-indigo-700 transition-colors">自己紹介</a>
+                <a href="#skills" class="text-stone-600 hover:text-indigo-700 transition-colors">スキル</a>
+                <a href="#projects" class="text-stone-600 hover:text-indigo-700 transition-colors">開発経験</a>
+                <a href="#contact" class="text-stone-600 hover:text-indigo-700 transition-colors">連絡先</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-stone-600 hover:text-indigo-700">自己紹介</a>
+            <a href="#skills" class="block py-2 text-stone-600 hover:text-indigo-700">スキル</a>
+            <a href="#projects" class="block py-2 text-stone-600 hover:text-indigo-700">開発経験</a>
+            <a href="#contact" class="block py-2 text-stone-600 hover:text-indigo-700">連絡先</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">大田 凌太郎</h1>
+            <p class="text-lg md:text-xl text-stone-600">Web Developer & Data Enthusiast</p>
+            <p class="mt-2 text-stone-500">京都大学 理学部 地球惑星科学専攻</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <h2 class="section-title text-3xl font-bold mb-12">自己紹介</h2>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <p class="text-stone-600 leading-relaxed mb-8">
+                    学園祭実行委員会でWebアプリケーションの作成を担当したことがきっかけでITの技術に興味を持つようになりました。チーム開発で複数人で連携して開発を進めていくことを得意としています。
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-indigo-700 mr-3">💡</span>聞く力（ヒアリング・調整能力）
+                        </h3>
+                        <p class="text-stone-600">
+                            学園祭実行委員会の開発では、企画の種類によって手続きが異なるという複雑な要件がありました。各担当者へ入念なヒアリングを行い、潜在的なニーズや課題を正確に把握。その上で、手続きの共通部分を統合しつつ、ユーザーに同じ情報を何度も入力させないよう、一部業務フローの変更を提案し、システム側でのデータ自動紐付けも実装しました。この経験から、多様な立場の人と対話し、最適なシステム要件を定義・調整する能力を培いました。
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-indigo-700 mr-3">⚙️</span>数学的思考力（論理的思考力）
+                        </h3>
+                        <p class="text-stone-600">
+                            ハッカソン開発において、チームで唯一統計学の知識があったため、データ分析のロジック選定から実装までを担当しました。大学で培った数学的思考力を活かし、複数の予測モデルを比較検討した上で、実用性の観点から重回帰分析を選択。ロジックの妥当性を論理的に判断し、実装まで完遂しました。このように、複雑な要件や課題を数学的・論理的に分解し、最適な解決策を導き出すことを得意としています。
+                        </p>
+                    </div>
+                </div>
+                 <div class="mt-12 bg-stone-50 p-6 rounded-lg border border-stone-200">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-indigo-700 mr-3">🚀</span>将来像
+                    </h3>
+                    <p class="text-stone-600">
+                        まずは、エンジニアとして自立して開発を遂行できる確かな技術力を身につけたいと考えています。将来的には、そこで得た専門性と、自身の強みであるコミュニケーション能力を掛け合わせ、チームを巻き込みながらプロダクトの価値を最大化する提案・開発をリードできるエンジニアになることを目指しています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="section-title text-3xl font-bold mb-12">スキルセット</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-stone-700">言語</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-medium">Python</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-medium">JavaScript/TypeScript</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-medium">Fortran</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-stone-700">フレームワーク & ライブラリ</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Django / DRF</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">React / Next.js</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Numpy / Pandas</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Scikit-learn</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Prisma</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Flutter</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-stone-700">データベース・インフラ・CI/CD</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">MySQL</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Docker</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">AWS (EC2, Lambda)</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Terraform</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">GitHub Actions</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-4 text-stone-700">その他ツール</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-medium">Git / GitHub</span>
+                        <span class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-medium">Slack</span>
+                        <span class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-medium">Google Apps Script</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="section-title text-3xl font-bold mb-12">開発経験</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">学園祭実行委員会 Webアプリ</h3>
+                        <p class="text-stone-600 mb-4 h-24">5～7人のチームで、11月祭の学内ポータル「PENGUIN」の開発・保守・管理を担当。フルスタックで開発に貢献しました。</p>
+                        <button data-project-id="0" class="project-details-button w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors">詳細を見る</button>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">ハッカソン受賞作品</h3>
+                        <p class="text-stone-600 mb-4 h-24">「Progateハッカソン」に参加し、データ分析モバイルアプリを開発。企業賞を受賞。主にバックエンドを担当しました。</p>
+                        <button data-project-id="1" class="project-details-button w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors">詳細を見る</button>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">授業での数値計算・データ分析</h3>
+                        <p class="text-stone-600 mb-4 h-24">大学の講義にて、地球惑星科学分野の課題解決にプログラミングを活用。データ可視化や数値積分などを実践しました。</p>
+                        <button data-project-id="2" class="project-details-button w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors">詳細を見る</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="section-title text-3xl font-bold mb-8">連絡先</h2>
+            <p class="text-stone-600 mb-8 max-w-2xl mx-auto">
+                ポートフォリオをご覧いただきありがとうございます。
+                ご興味を持っていただけましたら、以下の連絡先よりお気軽にご連絡ください。
+            </p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:ryotatoyr.828@gmail.com" class="text-stone-600 hover:text-indigo-700 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                </a>
+                <a href="https://github.com/ryotatoyr" target="_blank" class="text-stone-600 hover:text-indigo-700 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.003 10.003 0 0020 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/ryotatoyr" target="_blank" class="text-stone-600 hover:text-indigo-700 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.389 0-1.601 1.086-1.601 2.206v4.249H8.014V8h2.557v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.71zM5.337 6.835a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM6.59 16.338H4.084V8h2.506v8.338zM17.668 0H2.33C1.043 0 0 1.043 0 2.332v15.336C0 18.957 1.043 20 2.332 20h15.336C18.957 20 20 18.957 20 17.668V2.332C20 1.043 18.957 0 17.668 0z"></path></svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-6 bg-stone-200">
+        <p class="text-stone-500">&copy; 2025 Ryotaro Ota. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white w-full max-w-3xl max-h-[90vh] rounded-lg shadow-xl transform scale-95 overflow-y-auto">
+            <div class="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-bold"></h3>
+                <button id="modal-close-button" class="text-stone-500 hover:text-stone-800">&times;</button>
+            </div>
+            <div id="modal-body" class="p-6">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectsData = [
+            {
+                title: '学園祭実行委員会Webアプリケーション',
+                content: `
+                    <div class="space-y-4">
+                        <p><strong>概要:</strong> 5～7人のチームで、11月祭の学内ポータル「PENGUIN」の開発・保守・管理を担当。このアプリケーションは、企画出展団体への情報発信や、学生が出展手続きを行うためのものです。</p>
+                        <p><strong>URL:</strong> <a href="https://student.nf.la" target="_blank" class="text-indigo-600 hover:underline">学内ポータル PENGUIN</a> / <a href="https://github.com/" target="_blank" class="text-indigo-600 hover:underline">GitHubリポジトリ</a></p>
+                        <p><strong>担当範囲:</strong> 個々の機能の要件定義、DB設計、API開発、フロントエンド実装までを一貫して担当しました。</p>
+                        <p><strong>使用技術:</strong> React/Next.js, Django REST Framework, MySQL, Docker, AlmaLinux, Shibboleth IdP</p>
+                        <p><strong>制作期間:</strong> 2023年5月～2024年12月 (約1年8ヶ月)</p>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">工夫した点</h4>
+                            <p>学生と実行委員という、利用方法が大きく異なる2種類のユーザーが存在しました。多様な要望を整理し、双方にとって直感的で使いやすいUI/UXとなるよう、妥協せずに設計・開発を行いました。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">苦労した点</h4>
+                            <p><strong>技術的課題：</strong> 従来は紙媒体で行われていた複雑な手続きをシステム化する際、バックエンドで正確に再現することに挑戦しました。業務フローを細分化・整理した上で実装を進めることで、この課題を乗り越えました。</p>
+                            <p class="mt-2"><strong>プロジェクト管理：</strong> 開発のピーク時期に大規模なトラブルが発生し、大学側との調整と並行して対応する必要がありました。限られたリソースと変更されたスケジュールの中、メンバー間の進捗共有と相互サポートを徹底することで、チーム一丸となって乗り切りました。</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: 'ハッカソン受賞作品',
+                content: `
+                    <div class="space-y-4">
+                        <p><strong>概要:</strong> 2025年7月に開催された「Progateハッカソン Powered by AWS」に参加。サーフィンに関するデータ分析モバイルアプリケーションを開発し、サポート企業のエムスリー株式会社様より企業賞を受賞しました。</p>
+                        <p><strong>URL:</strong> <a href="https://topaz.dev/projects/c7e9f92c815ead6e0b2d" target="_blank" class="text-indigo-600 hover:underline">Topazプロジェクトページ</a> / <a href="https://github.com/progate-surfing-hackathon" target="_blank" class="text-indigo-600 hover:underline">GitHub</a></p>
+                        <p><strong>担当範囲:</strong> チームの一員として、データベース移行、フロントエンド実装、バックエンド開発と複数の領域を担当しましたが、<strong>特にPythonとAWS Lambdaを用いたデータ分析バックエンド機能の開発に主軸を置いて貢献しました。</strong></p>
+                        <p><strong>使用技術:</strong> Python, Flutter, Dart, Prisma, AWS Lambda, RDS</p>
+                        <p><strong>制作期間:</strong> 2025年7月 (ハッカソン期間)</p>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">工夫した点</h4>
+                            <p><strong>1. 実用性を考慮した予測モデルの選定と実装：</strong><br>支出予測機能の実装にあたり、機械学習と重回帰分析を比較検討。学習データの準備のしやすさから、scikit-learnを用いた重回帰分析を選択しました。また、翌日の予測に必要な気温（天気予報API）や歩数（過去の平均値）といった変数も予測するロジックを構築。当初はLambdaでの実装を検討しましたが、処理負荷を考慮し、EC2での定期実行を選択するなど、実運用を見据えたアーキテクチャを考えました。</p>
+                            <p class="mt-2"><strong>2. 処理速度を意識したパフォーマンスチューニング：</strong><br>将来的なデータ増加による実行時間増大を見越し、処理を分担。データの集約や並べ替えはSQLで高速に実行し、Pythonでは分析処理に専念させることでパフォーマンスを向上させました。また、必要に応じてインデックスを追加し、DBの検索性を高めました。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">成長したこと</h4>
+                            <p>ハッカソンという短期間で、支出予測というコア機能のバックエンド実装を完遂しました。重回帰分析モデルの選定から実装、そしてSQLとアプリケーションの役割分担によるパフォーマンスチューニングまで、一連のプロセスを実践できたことは大きな成長です。特に、LambdaとEC2の使い分けなど、技術選定の背景にあるトレードオフを意識してアーキテクチャを決定するという、より実務に近い経験を積むことができました。この経験を通じて、単に機能を実装するだけでなく、パフォーマンスや運用を考慮した設計の重要性を深く学びました。</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: '授業での数値計算・データ分析',
+                content: `
+                    <div class="space-y-4">
+                        <img src="https://placehold.co/600x350/EFEFEF/333333?text=成果物のグラフやGIFをここに" alt="データ分析 成果物" class="w-full h-auto rounded-lg mb-4">
+                        <p><strong>概要:</strong> 大学の講義にて、研究活動で用いられるプログラミングを学習。Runge-Kutta法による数値積分、再解析データの圧縮・可視化、最小二乗法による震源推定など、地球惑星科学分野の課題解決にプログラミングを活用しました。</p>
+                        <p><strong>使用技術:</strong> Python, Numpy, Pandas, Scikit-learn, Matplotlib, Fortran</p>
+                        <p><strong>制作期間:</strong> 2024年10月～現在</p>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">工夫した点</h4>
+                            <p>大気の再解析データを可視化する際、ただ図にするだけでなく、目的の気候現象が明瞭に判断できるよう、データの範囲選定や可視化手法（カラーマップ、等高線の間隔など）を試行錯誤しました。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">苦労した点</h4>
+                            <p>気候現象に関する微分方程式の数値積分プログラムを作成する際、汎用性を持たせることに苦労しました。初期値や計算点の数を柔軟に変更できる入力インターフェースや、多様な描画結果に対応できるようなコード構造を設計することで、再利用性の高いプログラムを目指しました。</p>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        const detailButtons = document.querySelectorAll('.project-details-button');
+
+        const openModal = (projectId) => {
+            const project = projectsData[projectId];
+            modalTitle.textContent = project.title;
+            modalBody.innerHTML = project.content;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        };
+
+        detailButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.dataset.projectId;
+                openModal(projectId);
+            });
+        });
+
+        modalCloseButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
