@@ -84,7 +84,7 @@ This is Ryotaro Ota's personal portfolio website, a static HTML/CSS/JavaScript s
    - Contact information in 連絡先 section
 
 ### Adding New Projects
-1. **Locate the `projectsData` array** in the `<script>` section of `index.html`
+1. **Locate the `projectsData` array** in the `<script>` section of `index.html` (around line 416)
 2. **Add new project object** with title and content following existing pattern
 3. **Update project cards HTML** in the 開発経験 section to match array length
 4. **Test modal functionality** - ensure new project opens correctly
@@ -111,7 +111,13 @@ This is Ryotaro Ota's personal portfolio website, a static HTML/CSS/JavaScript s
   4. Modal close buttons work
   5. External links open correctly
   6. Responsive design works on mobile viewport
-  7. No JavaScript console errors
+  7. No JavaScript console errors (press F12 to check browser console)
+
+### Checking for JavaScript Errors
+- **Open browser console**: Press F12 and navigate to Console tab
+- **Look for errors**: Should see no red error messages after page load
+- **Test interactions**: Click modals and navigation, verify no new errors appear
+- **CDN loading**: May see ERR_BLOCKED_BY_CLIENT for external resources in some environments (this is normal)
 
 ### Browser Compatibility Testing
 - **Test in multiple browsers** when making significant changes
