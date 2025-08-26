@@ -62,11 +62,6 @@
             >開発経験</a
           >
           <a
-            href="#internship"
-            class="text-stone-600 hover:text-indigo-700 transition-colors"
-            >インターンシップ</a
-          >
-          <a
             href="#contact"
             class="text-stone-600 hover:text-indigo-700 transition-colors"
             >連絡先</a
@@ -103,11 +98,6 @@
           href="#projects"
           class="block py-2 text-stone-600 hover:text-indigo-700"
           >開発経験</a
-        >
-        <a
-          href="#internship"
-          class="block py-2 text-stone-600 hover:text-indigo-700"
-          >インターンシップ</a
         >
         <a
           href="#contact"
@@ -202,6 +192,10 @@
               <span
                 class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium"
                 >Numpy / Pandas</span
+              >
+              <span
+                class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium"
+                >Google ADK</span
               >
               <span
                 class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium"
@@ -323,49 +317,23 @@
               </button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Internship Section -->
-      <section id="internship" class="py-16">
-        <h2 class="section-title text-3xl font-bold mb-12">インターンシップ</h2>
-        <div class="max-w-4xl mx-auto">
-          <!-- Internship Card -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-4">生成AIインターンシップ - ポーカーエージェント開発</h3>
-              <div class="space-y-4 text-stone-600">
-                <p><strong>概要:</strong> 短期インターンシップにて、テキサスホールデムポーカーのLLMエージェント開発プロジェクトに参加。Team 4のエージェント部分を2人チームで協力して開発しました。</p>
-                <p><strong>リポジトリ:</strong> <a href="https://github.com/ryotatoyr/adk_porker_2025" target="_blank" class="text-indigo-600 hover:underline">ryotatoyr/adk_porker_2025</a> (fork from gochipon/adk_poker_2025)</p>
-                <p><strong>担当範囲:</strong> Team 4エージェントの戦略ロジック開発、プロンプトエンジニアリング、バグ修正、機能追加など</p>
-                <p><strong>使用技術:</strong> Python, LLM API連携, JSON処理, ポーカー戦略アルゴリズム</p>
-                <p><strong>開発期間:</strong> 短期インターンシップ期間中</p>
-                
-                <div class="mt-6">
-                  <h4 class="font-semibold text-lg mb-3">主な成果</h4>
-                  <ul class="list-disc list-inside space-y-2">
-                    <li><strong>積極的な貢献:</strong> 13件のPull Requestをマージ、継続的な開発・改善を実施</li>
-                    <li><strong>チーム協力:</strong> 2人チームでコードレビューやペアプログラミングを実践</li>
-                    <li><strong>技術的成長:</strong> LLM APIとの連携、JSON構造化データの処理、ポーカーゲームロジックの実装</li>
-                    <li><strong>問題解決:</strong> ベッティングラウンドやターンフェーズのバグ修正に貢献</li>
-                  </ul>
-                </div>
-
-                <div class="mt-6">
-                  <h4 class="font-semibold text-lg mb-3">プロジェクトの特徴</h4>
-                  <ul class="list-disc list-inside space-y-2">
-                    <li>WebアプリとCLIの両方に対応したテキサスホールデムポーカーシステム</li>
-                    <li>LLMプレイヤー機能: JSON形式でゲーム状態を受け取り、戦略的判断を実行</li>
-                    <li>リアルタイム観戦機能とログビューワー機能</li>
-                    <li>完全実装されたNo-Limitルール、ハンド評価、ショーダウン機能</li>
-                  </ul>
-                </div>
-
-                <div class="mt-6">
-                  <h4 class="font-semibold text-lg mb-3">学んだこと</h4>
-                  <p>このインターンシップを通じて、実際のチーム開発でのGitフローの重要性、コードレビューの価値、そしてLLMを活用したアプリケーション開発の実践的なスキルを身につけました。特に、複雑なゲームロジックをJSONで構造化して処理する設計パターンや、エージェント間の相互作用を考慮したシステム設計の経験が貴重でした。</p>
-                </div>
-              </div>
+          <!-- Project Card 4: Internship (moved into projects) -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">
+                生成AIインターンシップ - ポーカーエージェント開発
+              </h3>
+              <p class="text-stone-600 mb-4 h-24">
+                短期インターンでLLMを用いたポーカーエージェントの開発に参加し、戦略ロジックやプロンプト設計、バグ修正に貢献しました。
+              </p>
+              <button
+                data-project-id="3"
+                class="project-details-button w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors"
+              >
+                詳細を見る
+              </button>
             </div>
           </div>
         </div>
@@ -560,6 +528,43 @@
                                     <p class="text-sm text-stone-600 text-center">N=8での数値解析結果(多角形解の自然崩壊)</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                `,
+          },
+          {
+            title: "生成AIインターンシップ - ポーカーエージェント開発",
+            content: `
+                    <div class="space-y-4">
+                        <p><strong>概要:</strong> 短期インターンシップにて、テキサスホールデムポーカーのLLMエージェント開発プロジェクトに参加。Team 4のエージェント部分を2人チームで協力して開発しました。</p>
+                        <p><strong>リポジトリ:</strong> <a href="https://github.com/ryotatoyr/adk_porker_2025" target="_blank" class="text-indigo-600 hover:underline">ryotatoyr/adk_porker_2025</a> (fork from gochipon/adk_poker_2025)</p>
+                        <p><strong>担当範囲:</strong> Team 4エージェントの戦略ロジック開発、プロンプトエンジニアリング、バグ修正、機能追加など</p>
+                        <p><strong>使用技術:</strong> Google ADK, Python, LLM API連携, JSON処理, ポーカー戦略アルゴリズム</p>
+                        <p><strong>開発期間:</strong> 3日間(短期インターンシップ期間中)</p>
+
+                        <div class="mt-6">
+                          <h4 class="font-semibold text-lg mb-3">主な成果</h4>
+                          <ul class="list-disc list-inside space-y-2">
+                            <li><strong>積極的な貢献:</strong> 13件のPull Requestをマージ、継続的な開発・改善を実施</li>
+                            <li><strong>チーム協力:</strong> 2人チームでコードレビューやペアプログラミングを実践</li>
+                            <li><strong>技術的成長:</strong> LLM APIとの連携、AI agentのロジック開発、JSON構造化データの処理</li>
+                            <li><strong>問題解決:</strong> Agent workflowの作成（Sequential, Parallel)に駆動するagentの作成、ポーカーのフェーズに合わせたロジック開発</li>
+                          </ul>
+                        </div>
+
+                        <div class="mt-6">
+                          <h4 class="font-semibold text-lg mb-3">プロジェクトの特徴</h4>
+                          <ul class="list-disc list-inside space-y-2">
+                            <li>WebアプリとCLIの両方に対応したテキサスホールデムポーカーシステム</li>
+                            <li>リアルタイム観戦機能とログビューワー機能</li>
+                            <li>完全実装されたNo-Limitルール、ハンド評価、ショーダウン機能</li>
+                            <li>LLMプレイヤー機能: JSON形式でゲーム状態を受け取り、戦略的判断を実行</li>
+                          </ul>
+                        </div>
+
+                        <div class="mt-6">
+                          <h4 class="font-semibold text-lg mb-3">学んだこと</h4>
+                          <p>このインターンシップを通じて、初めてAI agentの開発を体験しました。Google ADKを用いたLLMを用いた機能・プロダクトの開発は、ブラックボックス的な内部処理の中でアウトプットが安定しない問題がありました。ワークフローの設計や確率計算メソッドの分割・プロンプトの工夫により、どうすればロジカルに安定したアウトプットを実現できるかを学びました。また、実際のチーム開発でのGitフローの重要性、コードレビューの価値、そしてLLMを活用したアプリケーション開発の実践的なスキルを身につけました。</p>
                         </div>
                     </div>
                 `,
