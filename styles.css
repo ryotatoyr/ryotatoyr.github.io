@@ -18,3 +18,22 @@ body {
   background-color: #4338ca;
   margin-top: 8px;
 }
+/* フォントをより細身にし、セリフ体（明朝体系）を混ぜる */
+body {
+  font-family: "Inter", "Noto Sans JP", sans-serif;
+}
+
+/* セクションタイトルの下線を細く、シンプルに */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px; /* 3pxから1pxへ細く */
+  background-color: #818cf8; /* indigo-400相当 */
+  margin-top: 12px;
+}
+
+/* カードにホバーした時の光るようなエフェクト */
+.project-card:hover {
+  box-shadow: 0 0 20px rgba(129, 140, 248, 0.1);
+}
